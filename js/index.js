@@ -1,8 +1,8 @@
 function limpiarLocalStorage() {
-  localStorage.removeItem("direccion");
+  localStorage.removeItem("direccionr");
 
   // Elimina el Local Storage específico para "telefono"
-  localStorage.removeItem("telefono");
+  localStorage.removeItem("telefonor");
 }
 
 
@@ -24,7 +24,7 @@ document
   .getElementById("eliminarLocalStorageButton")
   .addEventListener("click", function () {
     // Elimina el contenido del localStorage
-    localStorage.removeItem("excel");
+    localStorage.removeItem("excelr");
     // También puedes usar localStorage.clear() para eliminar todos los datos del localStorage
 refrescarPagina()
     // Limpia la variable productos
@@ -85,7 +85,7 @@ verProductosapi();
 
 // Puedes acceder a "productos" después de que la carga esté completa
 // Al cargar la página, verifica si hay productos almacenados en el localStorage
-const productosAlmacenados = localStorage.getItem("excel");
+const productosAlmacenados = localStorage.getItem("excelr");
 
 if (productosAlmacenados) {
   // Si hay productos en el localStorage, cárgalos
@@ -137,7 +137,7 @@ refrescarPagina()
             console.log("Productos cargados desde el archivo Excel:", producto);
 
             // Después de cargar los productos, guárdalos en el localStorage
-            localStorage.setItem("excel", JSON.stringify(producto));
+            localStorage.setItem("excelr", JSON.stringify(producto));
 
             resolve(producto); // Resuelve la promesa cuando se han cargado los productos
           };
@@ -180,8 +180,8 @@ pricePremium();
 
 
 
-const direccion = localStorage.getItem("direccion");
-const telefono = localStorage.getItem("telefono");
+const direccion = localStorage.getItem("direccionr");
+const telefono = localStorage.getItem("telefonor");
 
 // Verifica si los valores son nulos o indefinidos antes de usarlos
 if (direccion !== null && telefono !== null) {
@@ -205,7 +205,7 @@ const mensajeContainer = document.getElementById('mensajeContainer');
 
 
 // Verifica si hay un mensaje guardado en el almacenamiento local y muestre en el contenedor
-const mensajeGuardado = localStorage.getItem('mensaje');
+const mensajeGuardado = localStorage.getItem('mensajer');
 if (mensajeGuardado) {
   mensajeContainer.innerText = mensajeGuardado;
 }
@@ -219,7 +219,7 @@ btnAceptar.addEventListener('click', function() {
   mensajeContainer.innerText = mensaje;
 
   // Guarda el mensaje en el almacenamiento local
-  localStorage.setItem('mensaje', mensaje);
+  localStorage.setItem('mensajer', mensaje);
   refrescarPagina()
 });
 
@@ -288,7 +288,7 @@ productos.forEach((producto, index) => {
 
 let botonCambiardireccion = document.getElementById("boton10");
 let direccionElement = document.getElementById("direccion");
-let direccionGuardada = localStorage.getItem("direccion");
+let direccionGuardada = localStorage.getItem("direccionr");
 
 if (direccionElement && direccionGuardada) {
   direccionElement.innerHTML = direccionGuardada;
@@ -299,7 +299,7 @@ botonCambiardireccion.addEventListener("click", () => {
   if (direccionElement) {
     direccionElement.innerHTML = direccion1;
     document.getElementById("direccioninput").value = "";
-    localStorage.setItem("direccion", direccion1);
+    localStorage.setItem("direccionr", direccion1);
 
     refrescarPagina();
   }
@@ -307,7 +307,7 @@ botonCambiardireccion.addEventListener("click", () => {
 
 let botonCambiarTelefono = document.getElementById("boton11");
 let telefonoElement = document.getElementById("telefono");
-let telefonoGuardada = localStorage.getItem("telefono");
+let telefonoGuardada = localStorage.getItem("telefonor");
 
 if (telefonoElement && telefonoGuardada) {
   telefonoElement.innerHTML = telefonoGuardada;
@@ -318,7 +318,7 @@ botonCambiarTelefono.addEventListener("click", () => {
   if (telefonoElement) {
     telefonoElement.innerHTML = telefono1;
     document.getElementById("telefonoinput").value = "";
-    localStorage.setItem("telefono", telefono1);
+    localStorage.setItem("telefonor", telefono1);
     refrescarPagina();
   }
 });
