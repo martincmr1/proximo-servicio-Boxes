@@ -265,14 +265,22 @@ productos.forEach((producto, index) => {
   // Agrega la tarjeta al contenedor
   tarjetasContainer.appendChild(tarjeta);
 
-  // Agrega un manejador de eventos para el enlace de WhatsApp Web
   const whatsappBtn = tarjeta.querySelector(".whatsapp-button");
   whatsappBtn.addEventListener("click", (e) => {
     e.preventDefault(); // Evita el comportamiento predeterminado del enlace
     const mensaje = crearMensaje(producto);
-    const enlaceWhatsAppWeb = `https://web.whatsapp.com/send?phone=549${producto.telefono}&text=${encodeURIComponent(mensaje)}`;
-    window.open(enlaceWhatsAppWeb, "_blank");
-
+    let enlaceWhatsApp;
+  
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      // Si el usuario está en un dispositivo móvil
+      enlaceWhatsApp = `https://api.whatsapp.com/send?phone=549${producto.telefono}&text=${encodeURIComponent(mensaje)}`;
+    } else {
+      // Si el usuario está en una PC
+      enlaceWhatsApp = `https://web.whatsapp.com/send?phone=549${producto.telefono}&text=${encodeURIComponent(mensaje)}`;
+    }
+  
+    window.open(enlaceWhatsApp, "_blank");
+  
     // Cambia el estilo y el texto del botón después de hacer clic
     whatsappBtn.classList.remove("btn-success");
     whatsappBtn.classList.add("btn-secondary");
@@ -281,6 +289,7 @@ productos.forEach((producto, index) => {
     // Deshabilita el botón para que no se pueda hacer clic nuevamente
     whatsappBtn.disabled = true;
   });
+  
 });
 
 
