@@ -220,6 +220,7 @@ btnAceptar.addEventListener('click', function() {
 
   // Guarda el mensaje en el almacenamiento local
   localStorage.setItem('mensaje', mensaje);
+  refrescarPagina()
 });
 
 
