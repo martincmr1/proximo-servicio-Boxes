@@ -1,3 +1,8 @@
+
+const ubicacion = '\uD83D\uDCCD';
+const autoIcon = '\uD83D\uDE97';
+const atencion = '\u26A0';
+
 function limpiarLocalStorage() {
   localStorage.removeItem("direccionr");
 
@@ -239,7 +244,7 @@ function crearMensaje(producto) {
   const modelo = producto.modelo.trim();
   const patente = producto.patente.trim();
 
-  return `Hola ${nombre}, se acerca el próximo servicio de tu vehículo: ${marca} ${modelo} patente: ${patente}.  ${mensajeAdicional}; ${telefono}. ${direccion}. *Agendanos para enterarte de nuestras promociones y descuentos*`
+  return `Hola _${nombre}_, se acerca el próximo servicio de tu vehículo:${autoIcon} _${marca}_ _${modelo}_ patente: *${patente}*. ${atencion} ${mensajeAdicional}; *${telefono}*. ${ubicacion} ${direccion}. *Agendanos para enterarte de nuestras promociones y descuentos* https://imgur.com/a/2DdqC7x`
 }
 
 // Itera a través de los elementos del array y crea una tarjeta con un enlace a WhatsApp Web para cada uno
